@@ -1,0 +1,56 @@
+// custom Estonian keyboard layout by Tormi Vahar <tormi.vahar@gmail.com>
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    // Describes a custom keyboard layout made to accomodate the needs of one individual
+
+    include "latin(type4)"
+
+    name[Group1]="Estonian";
+
+    key <TLDE>	{ [ grave, asciitilde, approximate ] }; // ` ~ ≅
+    key <AE01>  { [ 1, eclam, twosuperior, onesuperior ] }; // 1 ! ² ¹
+    key <AE02>  { [ 2, quotedbl, at, twosuperior ] }; // 2 " @ ²
+    key <AE03>	{ [ 3, numbersign, sterling, threesuperior ] }; // 3 # £ ³
+    key <AE04>	{ [ 4, degree, dollar ]	}; // 4 ° $
+    key <AE07>	{ [ 7, slash, braceleft, division ]	}; // 7 / { ÷
+    key <AE11>	{ [ plus, question, backslash, plusminus ] }; // + ? \ ±
+    key <AE12>	{ [ dead_acute, dead_grave, bar ] }; // ' ` |
+    
+    key <AD01>  { [ q, Q, Greek_alpha, Greek_OMEGA ] }; // q Q α Ω
+    key <AD02>  { [ w, W, Greek_beta, Greek_SIGMA ] }; // w W β Σ
+    key <AD04>  { [ r, R, registered ] }; // r R ®
+    key <AD05>  { [ t, T, trademark ] }; // t T ™
+    key <AD06>  { [ y, Y, copyright ] }; // y Y ©
+    key <AD07>  { [ u, U, uparrow ] }; // u U ↑
+    key <AD08>  { [ i, I, infinity ] }; // i I ∞
+    key <AD09>  { [ o, O, oe, OE ] }; // o O œ Œ
+    key <AD10>  { [ p, P, Greek_pi ] }; // p P π
+    key <AD11>	{ [ udiaeresis, Udiaeresis, dead_diaeresis, dead_abovering ] }; // ü Ü ¨ °
+    key <AD12>	{ [ otilde, Otilde, section, dead_macron ]	}; // õ Õ § ¯
+
+    key <AC01>  { [ a, A, ae, AE ] }; // a A æ Æ
+    key <AC02>	{ [ s, S, slash ] }; // s S /
+    key <AC03>  { [ d, D, parenleft ] }; // d D (
+    key <AC04>  { [ f, F, parenright ] }; // f F )
+    key <AC05>  { [ g, G, backslash ] }; // g G \ 
+    key <AC06>  { [ h, H, onehalf ] }; // h H ½
+    key <AC07>  { [ j, J, braceleft ] }; // j J {
+    key <AC08>  { [ k, K, braceright ] }; // k K }
+    key <AC09>  { [ l, L, bracketleft ] }; // l L [
+    key <AC10>	{ [ odiaeresis, Odiaeresis, bracketright ] }; // ö Ö ]
+    key <AC11>	{ [ adiaeresis, Adiaeresis, dead_asciicircum ] }; // ä Ä ^
+    key <BKSL>	{ [ apostrophe, asterisk, dead_caron ] }; // ' * ˇ
+
+    key <LSGT>  { [ less, greater, lessthanequal, greaterthanequal ] }; // < > ≤ ≥
+    key <AB01>	{ [ z, Z ]	}; // z Z
+    key <AB03>  { [ c, C, ccedilla, Ccedilla ] }; // c C ç Ç
+    key <AB04>  { [ v, V, downarrow ] }; // v V ↓
+    key <AB05>  { [ b, B, ssharp ] }; // b B ß
+    key <AB08>	{ [ comma, semicolon, multiply, division ] }; // , ; × ÷
+    key <AB09>	{ [ period, colon, periodcentered ] }; // . : ·
+    key <AB10>	{ [ minus, underscore, notequal, Ooblique ] }; // - _ ≠ Ø
+
+    include "level3(ralt_switch)"
+    include "eurosign(5)"
+};
