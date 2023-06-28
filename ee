@@ -8,49 +8,58 @@ xkb_symbols "basic" {
 
     name[Group1]="Estonian";
 
-    key <TLDE>	{ [ grave, asciitilde, approximate ] }; // ` ~ ≅
-    key <AE01>  { [ 1, eclam, twosuperior, onesuperior ] }; // 1 ! ² ¹
-    key <AE02>  { [ 2, quotedbl, at, twosuperior ] }; // 2 " @ ²
-    key <AE03>	{ [ 3, numbersign, sterling, threesuperior ] }; // 3 # £ ³
-    key <AE04>	{ [ 4, degree, dollar ]	}; // 4 ° $
-    key <AE07>	{ [ 7, slash, braceleft, division ]	}; // 7 / { ÷
-    key <AE11>	{ [ plus, question, backslash, plusminus ] }; // + ? \ ±
-    key <AE12>	{ [ dead_acute, dead_grave, bar ] }; // ' ` |
+    key <TLDE>	{ [ grave, asciitilde, U2248, dead_tilde ] }; //        ` ~ ≈ ~
+    key <AE01>  { [ 1, exclam, NoSymbol, onesuperior ] }; //            1 !   ¹
+    key <AE02>  { [ 2, quotedbl, at, twosuperior ] }; //                2 " @ ²
+    key <AE03>	{ [ 3, numbersign, numbersign, threesuperior ] }; //    3 # # ³
+    key <AE04>	{ [ 4, degree, dollar, onequarter ] }; //               4 ° $ ¼
+    key <AE05>	{ [ 5, percent, EuroSign, threequarters ] }; //         5 % € ¾
+    key <AE06>	{ [ 6, ampersand, sterling ] }; //                      6 & £
+    key <AE07>	{ [ 7, slash, braceleft ] }; //                         7 / {
+    key <AE08>	{ [ 8, parenleft, bracketleft ] }; //                   8 ( [
+    key <AE09>	{ [ 9, parenright, bracketright ] }; //                 9 ) ]
+    key <AE10>	{ [ 0, equal, braceright ] }; //                        0 = }
+    key <AE11>	{ [ plus, question, backslash, plusminus ] }; //        + ? \ ±
+    key <AE12>	{ [ dead_acute, dead_grave, bar, division ] }; //       ' ` | ÷
     
-    key <AD01>  { [ q, Q, Greek_alpha, Greek_OMEGA ] }; // q Q α Ω
-    key <AD02>  { [ w, W, Greek_beta, Greek_SIGMA ] }; // w W β Σ
-    key <AD04>  { [ r, R, registered ] }; // r R ®
-    key <AD05>  { [ t, T, trademark ] }; // t T ™
-    key <AD06>  { [ y, Y, copyright ] }; // y Y ©
-    key <AD07>  { [ u, U, uparrow ] }; // u U ↑
-    key <AD08>  { [ i, I, infinity ] }; // i I ∞
-    key <AD09>  { [ o, O, oe, OE ] }; // o O œ Œ
-    key <AD10>  { [ p, P, Greek_pi ] }; // p P π
-    key <AD11>	{ [ udiaeresis, Udiaeresis, dead_diaeresis, dead_abovering ] }; // ü Ü ¨ °
-    key <AD12>	{ [ otilde, Otilde, section, dead_macron ]	}; // õ Õ § ¯
+    key <AD01>  { [ q, Q, infinity ] };	//                              q Q ∞
+    key <AD02>  { [ w, W, percent ] }; //                               w W %
+    key <AD03>  { [ e, E, asciicircum, uparrow ] }; //                  e E ^ ↑
+    key <AD04>  { [ r, R, dollar ] }; //                                r R $
+    key <AD05>  { [ t, T, trademark ] }; //                             t T ™
+    key <AD06>  { [ y, Y, copyright ] }; //                             y Y ©
+    key <AD07>  { [ u, U, registered ] }; //                            u U ®
+    key <AD08>  { [ i, I, slash ] }; //                                 i I /
+    key <AD09>  { [ o, O, backslash ] }; //                             o O \
+    key <AD10>  { [ p, P, oe, OE ] }; //                                p P œ Œ
+    key <AD11>	{ [ udiaeresis, Udiaeresis, Greek_pi, Greek_PI ] }; //  ü Ü π Π
+    key <AD12>	{ [ otilde, Otilde, section, dead_diaeresis ] }; //     õ Õ § ¨
 
-    key <AC01>  { [ a, A, ae, AE ] }; // a A æ Æ
-    key <AC02>	{ [ s, S, slash ] }; // s S /
-    key <AC03>  { [ d, D, parenleft ] }; // d D (
-    key <AC04>  { [ f, F, parenright ] }; // f F )
-    key <AC05>  { [ g, G, backslash ] }; // g G \ 
-    key <AC06>  { [ h, H, onehalf ] }; // h H ½
-    key <AC07>  { [ j, J, braceleft ] }; // j J {
-    key <AC08>  { [ k, K, braceright ] }; // k K }
-    key <AC09>  { [ l, L, bracketleft ] }; // l L [
-    key <AC10>	{ [ odiaeresis, Odiaeresis, bracketright ] }; // ö Ö ]
-    key <AC11>	{ [ adiaeresis, Adiaeresis, dead_asciicircum ] }; // ä Ä ^
-    key <BKSL>	{ [ apostrophe, asterisk, dead_caron ] }; // ' * ˇ
+    key <CAPS>  { [ Control_L ] }; //	to have Caps_Lock behave like Control_L
+    key <AC01>  { [ a, A, ae, AE ] }; //                                a A æ Æ
+    key <AC02>	{ [ s, S, bracketleft, leftarrow ] }; //                s S [ ←
+    key <AC03>  { [ d, D, parenleft, downarrow ] }; //                  d D ( ↓
+    key <AC04>  { [ f, F, braceleft, rightarrow ] }; //                 f F { →
+    key <AC05>  { [ g, G, ampersand ] }; //                             g G & 
+    key <AC06>  { [ h, H, asciitilde, onehalf ] }; //                   h H ~ ½
+    key <AC07>  { [ j, J, braceright ] }; //                            j J }
+    key <AC08>  { [ k, K, parenright ] }; //                            k K )
+    key <AC09>  { [ l, L, bracketright ] }; //                          l L ]
+    key <AC10>	{ [ odiaeresis, Odiaeresis ] }; //                      ö Ö
+    key <AC11>	{ [ adiaeresis, Adiaeresis, dead_asciicircum, dead_macron ] }; //   ä Ä ^ ¯
+    key <BKSL>	{ [ apostrophe, asterisk, dead_caron, dead_abovering ] }; //        ' * ˇ °
 
-    key <LSGT>  { [ less, greater, lessthanequal, greaterthanequal ] }; // < > ≤ ≥
-    key <AB01>	{ [ z, Z ]	}; // z Z
-    key <AB03>  { [ c, C, ccedilla, Ccedilla ] }; // c C ç Ç
-    key <AB04>  { [ v, V, downarrow ] }; // v V ↓
-    key <AB05>  { [ b, B, ssharp ] }; // b B ß
-    key <AB08>	{ [ comma, semicolon, multiply, division ] }; // , ; × ÷
-    key <AB09>	{ [ period, colon, periodcentered ] }; // . : ·
-    key <AB10>	{ [ minus, underscore, notequal, Ooblique ] }; // - _ ≠ Ø
+    key <LSGT>  { [ less, greater, lessthanequal, greaterthanequal ] }; //  < > ≤ ≥
+    key <AB01>	{ [ z, Z, Greek_alpha, Greek_beta ] }; //               z Z α β
+    key <AB02>	{ [ x, X, Greek_OMEGA, Greek_SIGMA ] }; //              x X Ω Σ
+    key <AB03>  { [ c, C, ccedilla, Ccedilla ] }; //                    c C ç Ç
+    key <AB04>  { [ v, V, bar ] }; //                                   v V |
+    key <AB05>  { [ b, B, ssharp ] }; //                                b B ß
+    key <AB06>	{ [ n, N ] }; //                                        n N
+    key <AB07>	{ [ m, M, mu ] }; //                                    m M µ
+    key <AB08>	{ [ comma, semicolon, multiply ] }; //                  , ; ×
+    key <AB09>	{ [ period, colon, periodcentered ] }; //               . : ·
+    key <AB10>	{ [ minus, underscore, notequal, Ooblique ] }; //       - _ ≠ Ø
 
     include "level3(ralt_switch)"
-    include "eurosign(5)"
 };
