@@ -35,7 +35,6 @@ xkb_symbols "basic" {
     key <AD11>	{ [ udiaeresis, Udiaeresis, Greek_pi, Greek_PI ] }; //  ü Ü π Π
     key <AD12>	{ [ otilde, Otilde, section, dead_diaeresis ] }; //     õ Õ § ¨
 
-    key <CAPS>  { [ Control_L ] }; //	to have Caps_Lock behave like Control_L
     key <AC01>  { [ a, A, ae, AE ] }; //                                a A æ Æ
     key <AC02>	{ [ s, S, bracketleft, leftarrow ] }; //                s S [ ←
     key <AC03>  { [ d, D, parenleft, downarrow ] }; //                  d D ( ↓
@@ -63,3 +62,45 @@ xkb_symbols "basic" {
 
     include "level3(ralt_switch)"
 };
+
+// ┌─────┐
+// │ 2 4 │   2 = Shift,  4 = Level3(AltGr) + Shift
+// │ 1 3 │   1 = Normal, 3 = Level3(AltGr)
+// └─────┘   'd' after a symbol means it's a dead_key
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// │ ~ ~d│ ! ¹ │ " ² │ # ³ │ ° ¼ │ % ¾ │ &   │ /   │ (   │ )   │ =   │ ? ± │ `d÷ ┃ ⌫ Back- ┃
+// │ ` ≈ │ 1   │ 2 @ │ 3 # │ 4 $ │ 5 € │ 6 £ │ 7 { │ 8 [ │ 9 ] │ 0 } │ + \ │ ´d| ┃  space  ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// ┃       ┃ Q   │ W   │ E ↑ │ R   │ T   │ Y   │ U   │ I   │ O   │ P Œ │ Ü Π │ Õ ¨d┃ Enter ┃
+// ┃Tab ↹  ┃ q ∞ │ w % │ e ^ │ r $ │ t ™ │ y © │ u ® │ i / │ o \ │ p œ │ ü π │ õ § ┃   ⏎   ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┺┓      ┃
+// ┃        ┃ A Æ │ S ← │ D ↓ │ F → │ G   │ H ½ │ J   │ K   │ L   │ Ö   │ Ä ¯d│ * ˚d┃      ┃
+// ┃Caps ⇬  ┃ a æ │ s [ │ d ( │ f { │ g & │ h ~ │ j } │ k ) │ l ] │ ö   │ ä ^d│ ' ˇd┃      ┃
+// ┣━━━━━━━━┹────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┬┴────┲┷━━━━━┻━━━━━━┫
+// ┃       │ > ≥ │ Z β │ X Σ │ C Ç │ V   │ B   │ N   │ M   │ ;   │ :   │ _ Ø ┃             ┃
+// ┃Shift  │ < ≤ │ z α │ x Ω │ c ç │ v | │ b ß │ n   │ m µ │ , × │ . · │ - ≠ ┃Shift ⇧      ┃
+// ┣━━━━━━━┳━━━━━┷━┳━━━┷━━━┱─┴─────┴─────┴─────┴─────┴─────┴───┲━┷━━━━━╈━━━━━┻━┳━━━━━━━┳━━━┛
+// ┃       ┃       ┃       ┃ ␣                               ⍽ ┃       ┃       ┃       ┃
+// ┃Ctrl   ┃Meta   ┃Alt    ┃ ␣           Space               ⍽ ┃AltGr ⇮┃Menu   ┃Ctrl   ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹───────────────────────────────────┺━━━━━━━┻━━━━━━━┻━━━━━━━┛
+
+// to make <CAPS> behave like <LCTL>, create a new file called "caps-to-ctrl" in the dir /usr/share/X11/xkb/symbols/ with this terminal command:
+// sudo nano /usr/share/X11/xkb/symbols/caps-to-ctrl
+// write this inside:
+
+// partial modifier_keys
+// xkb_symbols "ctrlnocaps" {
+//    replace key <CAPS> { [ Control_L ] };
+//    modifier_map Control { <CAPS> };
+// };
+
+// to apply the newly created option, use the `setxkbmap` tool with:
+// setxkbmap -option ctrl:nocaps
+
+// to make the change permanent, we need to add it to startup applications
+// Menu → Settings Manager → (System)Session and Startup → (Tab)Application Autostart → Add
+// Name: Xmodmap
+// Description: Turn CapsLock into LCtrl
+// Command: /usr/bin/setxkbmap -option ctrl:nocaps
+
+// Maybe remove the "/usr/bin/" from the command - TBD
